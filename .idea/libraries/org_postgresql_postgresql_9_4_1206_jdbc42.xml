@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="org.postgresql:postgresql:9.4-1206-jdbc42" type="repository">
+    <properties maven-id="org.postgresql:postgresql:9.4-1206-jdbc42" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/postgresql/postgresql/9.4-1206-jdbc42/postgresql-9.4-1206-jdbc42.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
