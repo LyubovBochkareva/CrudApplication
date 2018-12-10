@@ -29,11 +29,12 @@ public class AddUserServlet extends HttpServlet {
         String password = request.getParameter("password");
         String name = request.getParameter("name");
         int age = Integer.parseInt(request.getParameter("age"));
+        String role = request.getParameter("role");
         if (login == null || password == null) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
-        User user = new User((long) 0, login, password, name, age);
+        User user = new User((long) 0, login, password, name, age, role);
         userService.addUser(user);
         response.sendRedirect("/showUsers");
     }

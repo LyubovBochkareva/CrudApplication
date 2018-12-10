@@ -19,7 +19,7 @@ public class DeleteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.valueOf(req.getParameter("id"));
         req.setAttribute("getUserByIdToDelete", userService.getUser(id));
-        req.getRequestDispatcher("deleteUser.jsp").forward(req, resp);
+        req.getRequestDispatcher("/deleteUser.jsp").forward(req, resp);
     }
 
     @Override

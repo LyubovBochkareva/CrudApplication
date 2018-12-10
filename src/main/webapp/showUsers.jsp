@@ -15,16 +15,19 @@
             <td>Password</td>
             <td>Name</td>
             <td>Age</td>
+            <td>Role</td>
             <td>Действия</td>
         </tr>
-        <%--@elvariable id="showUsers" type="java.util.List"--%>
-        <c:forEach items="${showUsers}" var = "user">
+
+        <%--@elvariable id="allUser" type="java.util.List"--%>
+        <c:forEach items="${allUser}" var = "user">
             <tr>
                 <td>${user.getId()}</td>
                 <td>${user.getLogin()}</td>
                 <td>${user.getPassword()}</td>
                 <td>${user.getName()}</td>
                 <td>${user.getAge()}</td>
+                <td>${user.getRole()}</td>
                 <td>
                     <form action = "UpdateServlet" method="get">
                         <input type="hidden" name="id" value="${user.getId()}">

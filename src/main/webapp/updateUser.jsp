@@ -27,10 +27,14 @@
     <input class="form-control mb-2 mr-sm-2" type="password" name="password" value="${p.password}" placeholder=${p.password}>
     <input class="form-control mb-2 mr-sm-2" type="text" name="name" value="${p.name}" placeholder=${p.name}>
     <input class="form-control mb-2 mr-sm-2" type="number" name="age" value="${p.age}" placeholder=${p.age}>
+    <form action="UpdateUserServlet" method="post">
+    <p><select size="1" name="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select></p>
     <input class="btn btn-primary mb-2" type="submit" value="Обновить">
 </form>
-</tr>
-            </c:forEach>
+    </c:forEach>
 </div>
 </div>
 </body>

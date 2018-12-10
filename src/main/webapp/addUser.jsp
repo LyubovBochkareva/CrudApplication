@@ -33,6 +33,18 @@
                 </label></td>
             </tr>
             <tr>
+                <td>Роль</td>
+                <td><label>
+                    <form action="AddUserServlet" method="post">
+                        <select name="role">
+                            <option>Выберите роль</option>
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </form>
+                </label></td>
+            </tr>
+            <tr>
                 <td align="right" colspan="2"><input type="submit" value="Отправить"></td>
             </tr>
         </table>

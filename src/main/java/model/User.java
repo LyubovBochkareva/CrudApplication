@@ -26,15 +26,19 @@ public class User {
     @Column(name = "age",  updatable = true)
     private int age;
 
+    @Column(name = "role",  updatable = true)
+    private String role;
+
     public User() {
     }
 
-    public User(Long id, String login, String password, String name, int age){
+    public User(Long id, String login, String password, String name, int age, String role){
         this.id = id;
         this.login = login;
         this.password = password;
         this.name = name;
         this.age = age;
+        this.role = role;
     }
 
     public Long getId() {
@@ -77,6 +81,13 @@ public class User {
         this.age = age;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     @Override
     public String toString() {

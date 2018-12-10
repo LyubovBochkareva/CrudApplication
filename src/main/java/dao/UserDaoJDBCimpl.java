@@ -33,6 +33,11 @@ public class UserDaoJDBCimpl implements UserDao{
         }
     }
 
+    @Override
+    public List<User> getUserByLogin(String login) throws DBException {
+        return null;
+    }
+
     public List<User> getAllUser() throws DBException {
         String query = "SELECT * FROM public.users";
         try {
@@ -120,7 +125,8 @@ public class UserDaoJDBCimpl implements UserDao{
                 "  login    VARCHAR   NOT NULL," +
                 "  password VARCHAR   NOT NULL," +
                 "  name     VARCHAR   NOT NULL," +
-                "  age      INTEGER   NOT NULL" +
+                "  age      INTEGER   NOT NULL," +
+                "  role     VARCHAR   NOT NULL" +
                 ");" +
                 "" +
                 "ALTER TABLE public.users" +
@@ -148,7 +154,7 @@ public class UserDaoJDBCimpl implements UserDao{
         static List<User> handle(ResultSet resultSet) throws SQLException {
             List<User> userLinkedList = new LinkedList<>();
             while (resultSet.next()) {
-                User user = new User(resultSet.getLong(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5));
+                User user = new User(resultSet.getLong(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getInt(5), resultSet.getString(6));
                 userLinkedList.add(user);
             }
             return userLinkedList;

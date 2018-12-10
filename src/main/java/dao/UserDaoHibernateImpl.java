@@ -3,6 +3,7 @@ package dao;
 import model.User;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 import service.DBException;
 import util.DBHelper;
 import util.DBUtil;
@@ -23,6 +24,23 @@ public class UserDaoHibernateImpl implements UserDao {
             throw new DBException(e);
         }
         return userList;
+    }
+
+    public List<User> getUserByLogin(String login) throws DBException {
+        try (Session session = sessionFactory.openSession()) {
+            Query query = session.createQuery("FROM User where login = :paramLogin");
+            query.setParameter("paramLogin",login);
+            List<User> list = query.list();
+            if (list.size() > 0) {
+                return list;
+            }
+
+            session.close();
+            return null;
+
+        } catch (HibernateException e){
+            throw new DBException(e);
+        }
     }
 
     public List<User> getAllUser() throws DBException{

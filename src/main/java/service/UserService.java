@@ -6,7 +6,6 @@ import model.User;
 import util.DBUtil;
 
 import java.util.List;
-import java.util.Objects;
 
 public class UserService {
 
@@ -20,7 +19,7 @@ public class UserService {
         }
     }
 
-    private UserDao userDao = Objects.requireNonNull(userDaoFactory).createUserDao();
+    private UserDao userDao = userDaoFactory.createUserDao();
 
     public UserService() {
         
@@ -29,6 +28,15 @@ public class UserService {
     public List<User> getUser(Long id) {
         try {
             return userDao.getUserById(id);
+        } catch (DBException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public List<User> getUserByLogin(String login){
+        try {
+            return userDao.getUserByLogin(login);
         } catch (DBException e) {
             e.printStackTrace();
         }

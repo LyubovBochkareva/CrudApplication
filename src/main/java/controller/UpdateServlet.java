@@ -19,7 +19,7 @@ public class UpdateServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.valueOf(req.getParameter("id"));
             req.setAttribute("getUserById", userService.getUser(id));
-            req.getRequestDispatcher("updateUser.jsp").forward(req, resp);
+            req.getRequestDispatcher("/updateUser.jsp").forward(req, resp);
     }
 
     @Override
@@ -32,6 +32,7 @@ public class UpdateServlet extends HttpServlet {
             user.setPassword(req.getParameter("password"));
             user.setName(req.getParameter("name"));
             user.setAge(Integer.parseInt(req.getParameter("age")));
+            user.setRole(req.getParameter("role"));
             userService.updateUser(user);
             resp.sendRedirect("/showUsers");
     }

@@ -8,6 +8,7 @@ import java.util.List;
 public interface UserDao {
 
     List<User> getUserById(Long id) throws DBException;
+    List<User> getUserByLogin(String login) throws DBException;
     List<User> getAllUser() throws DBException;
     void insertUser(User user) throws DBException;
     void updateUser(User user) throws DBException;
