@@ -31,7 +31,7 @@ public class RoleFilterAdmin implements Filter {
                 httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/user");
             }
             //Если нет то на страницу входа.
-        }else httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "index.jsp");
+        }else httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/");
     }
 
      /*   User user = (User) httpServletRequest.getSession().getAttribute("user");
