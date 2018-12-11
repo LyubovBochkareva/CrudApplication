@@ -34,13 +34,14 @@ public class UserService {
         return null;
     }
 
-    public List<User> getUserByLogin(String login){
+    public List<User> getUserByLoginPassword(String login, String password) {
+        List<User> userList = null;
         try {
-            return userDao.getUserByLogin(login);
+            userList = userDao.getUserByLoginPassword(login, password);
         } catch (DBException e) {
             e.printStackTrace();
         }
-        return null;
+        return userList;
     }
 
     public List getAllUser() {

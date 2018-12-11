@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/adminS")
+@WebServlet("/admin")
 public class ShowUsersServlet extends HttpServlet {
 
     private final UserService userService = new UserService();
@@ -17,7 +17,7 @@ public class ShowUsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             resp.setContentType("text/html;charset=utf-8");
-            req.setAttribute("allUser", userService.getAllUser());
+            req.setAttribute("showUsers", userService.getAllUser());
             req.getRequestDispatcher("/showUsers.jsp").forward(req, resp);
     }
 

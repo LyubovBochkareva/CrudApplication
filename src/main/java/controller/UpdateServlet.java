@@ -34,6 +34,6 @@ public class UpdateServlet extends HttpServlet {
             user.setAge(Integer.parseInt(req.getParameter("age")));
             user.setRole(req.getParameter("role"));
             userService.updateUser(user);
-            resp.sendRedirect("/showUsers");
+            resp.sendRedirect("/admin");
     }
 }

@@ -36,6 +36,6 @@ public class AddUserServlet extends HttpServlet {
         }
         User user = new User((long) 0, login, password, name, age, role);
         userService.addUser(user);
-        response.sendRedirect("/showUsers");
+        response.sendRedirect("/admin");
     }
 }

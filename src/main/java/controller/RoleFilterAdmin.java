@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter("/adminS/*")
+@WebFilter("/admin/*")
 public class RoleFilterAdmin implements Filter {
 
     @Override

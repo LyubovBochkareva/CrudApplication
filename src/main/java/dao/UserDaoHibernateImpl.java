@@ -26,21 +26,17 @@ public class UserDaoHibernateImpl implements UserDao {
         return userList;
     }
 
-    public List<User> getUserByLogin(String login) throws DBException {
+    public List<User> getUserByLoginPassword(String login, String password) throws DBException {
+        List<User> list;
         try (Session session = sessionFactory.openSession()) {
-            Query query = session.createQuery("FROM User where login = :paramLogin");
+            Query query = session.createQuery("FROM User where login = :paramLogin AND password = :paramPassword");
             query.setParameter("paramLogin",login);
-            List<User> list = query.list();
-            if (list.size() > 0) {
-                return list;
-            }
-
-            session.close();
-            return null;
-
+            query.setParameter("paramPassword", password);
+            list = query.list();
         } catch (HibernateException e){
             throw new DBException(e);
         }
+        return list;
     }
 
     public List<User> getAllUser() throws DBException{

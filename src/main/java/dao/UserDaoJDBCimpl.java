@@ -34,7 +34,7 @@ public class UserDaoJDBCimpl implements UserDao{
     }
 
     @Override
-    public List<User> getUserByLogin(String login) throws DBException {
+    public List<User> getUserByLoginPassword(String login, String password) throws DBException {
         return null;
     }
 

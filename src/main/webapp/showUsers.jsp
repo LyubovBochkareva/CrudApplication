@@ -19,8 +19,8 @@
             <td>Действия</td>
         </tr>
 
-        <%--@elvariable id="allUser" type="java.util.List"--%>
-        <c:forEach items="${allUser}" var = "user">
+        <%--@elvariable id="showUsers" type="java.util.List"--%>
+        <c:forEach items="${showUsers}" var = "user">
             <tr>
                 <td>${user.getId()}</td>
                 <td>${user.getLogin()}</td>
