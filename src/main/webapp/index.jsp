@@ -8,7 +8,7 @@
 <body>
 WELCOME!
 
-<form action="AuthUserServlet" method="get">
+<form action="AuthUserServlet" method="post">
 <table>
     <tr>
         <td>Логин:</td>

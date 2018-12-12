@@ -24,14 +24,26 @@ public class RoleFilterAdmin implements Filter {
 
         //Существует ли сессиия
         boolean loggedIn = session != null && session.getAttribute("role") != null;
-        if (loggedIn ){
+        if (loggedIn) {
             //Если существует то получаем роль
             String userRole = session.getAttribute("role").toString();
-            if (userRole.equals("user")){
-                httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/user");
+            switch (userRole) {
+                case "user":
+                    httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/user");
+                    break;
+                case "admin":
+                    try {
+                        chain.doFilter(request, response);
+                    } catch (ServletException e) {
+                        e.printStackTrace();
+                    }
+                    //Если нет то на страницу входа.
+                    break;
+                default:
+                    httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/");
+                    break;
             }
-            //Если нет то на страницу входа.
-        }else httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/");
+        }
     }
 
      /*   User user = (User) httpServletRequest.getSession().getAttribute("user");

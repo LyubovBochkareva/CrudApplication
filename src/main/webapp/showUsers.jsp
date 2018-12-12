@@ -19,8 +19,8 @@
             <td>Действия</td>
         </tr>
 
-        <%--@elvariable id="showUsers" type="java.util.List"--%>
-        <c:forEach items="${showUsers}" var = "user">
+    <%--@elvariable id="showUsers" type="java.util.List"--%>
+    <c:forEach items="${showUsers}" var = "user">
             <tr>
                 <td>${user.getId()}</td>
                 <td>${user.getLogin()}</td>
@@ -39,8 +39,8 @@
                     </form>
                     </td>
                 </tr>
-            </c:forEach>
-    </table>
+    </c:forEach>
+</table>
         <form action = "AddUserServlet" method="get">
             <input type="submit" value="Добавить нового пользователя">
         </form>
