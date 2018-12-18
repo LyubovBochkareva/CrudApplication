@@ -29,11 +29,11 @@
                 <td>${user.getAge()}</td>
                 <td>${user.getRole()}</td>
                 <td>
-                    <form action = "UpdateServlet" method="get">
+                    <form action = "admin/UpdateServlet" method="get">
                         <input type="hidden" name="id" value="${user.getId()}">
                         <input type="submit" value="Изменить" style="float:left">
                     </form>
-                    <form action="DeleteServlet" method="get">
+                    <form action="admin/DeleteServlet" method="get">
                         <input type="hidden" name="id" value="${user.getId()}">
                         <input type="submit" value="Удалить" style="float:left">
                     </form>
@@ -41,7 +41,7 @@
                 </tr>
     </c:forEach>
 </table>
-        <form action = "AddUserServlet" method="get">
+        <form action = "admin/AddUserServlet" method="get">
             <input type="submit" value="Добавить нового пользователя">
         </form>
 </body>

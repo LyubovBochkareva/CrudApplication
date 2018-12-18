@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/UpdateServlet")
+@WebServlet("/admin/UpdateServlet")
 public class UpdateServlet extends HttpServlet {
 
     private final UserService userService = new UserService();

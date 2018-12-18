@@ -13,5 +13,4 @@ public interface UserDao {
     void insertUser(User user) throws DBException;
     void updateUser(User user) throws DBException;
     void deleteUser(Long id) throws DBException;
-
 }

@@ -2,6 +2,8 @@ package controller;
 
 import model.User;
 import service.UserService;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,35 +18,29 @@ public class AuthUserServlet extends HttpServlet {
     private final UserService userService = new UserService();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp){
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/").forward(req,resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-            resp.setContentType("text/html;charset=utf-8");
-            String login = req.getParameter("login");
-            String password = req.getParameter("password");
-            HttpSession session = req.getSession();
-            if (login == null || password == null) {
-                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                return;
-            }
-
-
-            List<User> userList = userService.getUserByLoginPassword(login,password);
-
-            if (userList.isEmpty()) {
-                resp.sendRedirect("/"); //index.jsp
-            } else {
-                User user = userList.get(0);
-
-                if (user.getRole().equals("user")) {
-                    session.setAttribute("role", user.getRole());
-                    resp.sendRedirect("/user");
-                } else if(user.getRole().equals("admin")){
-                    session.setAttribute("role", user.getRole());
-                    resp.sendRedirect("/admin");
-                }
-            }
+        resp.setContentType("text/html;charset=utf-8");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        HttpSession session = req.getSession();
+        if (login == null || password == null) {
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            return;
         }
+
+        List<User> userList = userService.getUserByLoginPassword(login, password);
+
+        if (userList.isEmpty()) {
+            resp.sendRedirect("/"); //index.jsp
+        } else {
+            User user = userList.get(0);
+                session.setAttribute("Logger_user", user);
+                resp.sendRedirect(req.getContextPath() + "/home");
+        }
+    }
 }

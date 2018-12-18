@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
@@ -6,7 +7,7 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-        <form action="AddUserServlet" method="post">
+        <form action="<c:url value="/admin/AddUserServlet"/>" method="post">
         <table>
             <tr>
                 <td>Логин:</td>
@@ -35,7 +36,7 @@
             <tr>
                 <td>Роль</td>
                 <td><label>
-                    <form action="AddUserServlet" method="post">
+                    <form action="<c:url value="/admin/AddUserServlet"/>" method="post">
                         <select name="role">
                             <option>Выберите роль</option>
                             <option value="user">User</option>

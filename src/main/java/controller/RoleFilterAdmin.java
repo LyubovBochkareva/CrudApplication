@@ -25,7 +25,6 @@ public class RoleFilterAdmin implements Filter {
         //Существует ли сессиия
         boolean loggedIn = session != null && session.getAttribute("role") != null;
         if (loggedIn) {
-            //Если существует то получаем роль
             String userRole = session.getAttribute("role").toString();
             switch (userRole) {
                 case "user":
@@ -45,14 +44,6 @@ public class RoleFilterAdmin implements Filter {
             }
         }
     }
-
-     /*   User user = (User) httpServletRequest.getSession().getAttribute("user");
-        if(user != null && user.getRole().equals("Admin")){
-            chain.doFilter(request,response);
-        } else {
-            httpServletResponse.sendRedirect("accessDenied.jsp");
-        }
-    }*/
 
     @Override
     public void destroy() {

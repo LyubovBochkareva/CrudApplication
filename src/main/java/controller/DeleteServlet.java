@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/DeleteServlet")
+@WebServlet("/admin/DeleteServlet")
 public class DeleteServlet extends HttpServlet {
 
     private final UserService userService = new UserService();

@@ -26,6 +26,7 @@ public class UserDaoHibernateImpl implements UserDao {
         return userList;
     }
 
+    @SuppressWarnings("unchecked")
     public List<User> getUserByLoginPassword(String login, String password) throws DBException {
         List<User> list;
         try (Session session = sessionFactory.openSession()) {
@@ -39,6 +40,7 @@ public class UserDaoHibernateImpl implements UserDao {
         return list;
     }
 
+    @SuppressWarnings("unchecked")
     public List<User> getAllUser() throws DBException{
         try (Session session = sessionFactory.openSession()) {
             List<User> userList = session.createQuery(" From User").list();

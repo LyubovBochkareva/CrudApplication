@@ -21,13 +21,13 @@
             <%--@elvariable id="getUserById" type="java.util.List"--%>
             <c:forEach items="${getUserById}" var="p">
 <tr>
-<form class="form-inline" action="UpdateServlet" method="post">
+<form class="form-inline" action="<c:url value="/admin/UpdateServlet"/>" method="post">
     <input class="form-control mb-2 mr-sm-2" type="hidden" name = "id" value="${p.id}">
     <input class="form-control mb-2 mr-sm-2" type="text" name="login" value="${p.login}" placeholder=${p.login}>
     <input class="form-control mb-2 mr-sm-2" type="password" name="password" value="${p.password}" placeholder=${p.password}>
     <input class="form-control mb-2 mr-sm-2" type="text" name="name" value="${p.name}" placeholder=${p.name}>
     <input class="form-control mb-2 mr-sm-2" type="number" name="age" value="${p.age}" placeholder=${p.age}>
-    <form action="UpdateUserServlet" method="post">
+    <form action="<c:url value="/admin/UpdateServlet"/>" method="post">
     <p><select size="1" name="role">
         <option value="user">User</option>
         <option value="admin">Admin</option>

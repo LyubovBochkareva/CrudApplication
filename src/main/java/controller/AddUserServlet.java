@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
-@WebServlet("/AddUserServlet")
+@WebServlet("/admin/AddUserServlet")
 public class AddUserServlet extends HttpServlet {
 
     private final UserService userService = new UserService();
