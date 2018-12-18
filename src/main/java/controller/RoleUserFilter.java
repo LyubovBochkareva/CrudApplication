@@ -24,12 +24,16 @@ public class RoleUserFilter implements Filter {
         HttpSession session = httpServletRequest.getSession(true);
 
         User user = (User) session.getAttribute("Logger_user");
-        if (user.getRole().equals("user")) {
-            session.setAttribute("role", user.getRole());
-            httpServletResponse.sendRedirect("/user");
-        } else {
-            session.setAttribute("role", user.getRole());
+        String userRole = user.getRole();
+        switch (userRole){
+            case "user":
+                session.setAttribute("role", userRole);
+                httpServletResponse.sendRedirect("/user");
+                break;
+            case "admin":
+            session.setAttribute("role", userRole);
             httpServletResponse.sendRedirect("/admin");
+            break;
         }
 
     }
