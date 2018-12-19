@@ -22,8 +22,8 @@ public class AuthUserFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         HttpServletResponse httpServletResponse = (HttpServletResponse) response;
         HttpSession session = httpServletRequest.getSession(true);
-        User user = (User) session.getAttribute("Logger_user");
-        if(user == null && !httpServletRequest.getRequestURI().equals("/AuthUserServlet") && !httpServletRequest.getRequestURI().equals("/")){
+        String role = (String) session.getAttribute("role");
+        if(role == null && !httpServletRequest.getRequestURI().equals("/AuthUserServlet") && !httpServletRequest.getRequestURI().equals("/")){
             httpServletResponse.sendRedirect("/");
         } else{
             chain.doFilter(request,response);

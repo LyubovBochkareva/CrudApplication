@@ -39,7 +39,8 @@ public class AuthUserServlet extends HttpServlet {
             resp.sendRedirect("/"); //index.jsp
         } else {
             User user = userList.get(0);
-                session.setAttribute("Logger_user", user);
+            String role = user.getRole();
+                session.setAttribute("role", role);
                 resp.sendRedirect(req.getContextPath() + "/home");
         }
     }

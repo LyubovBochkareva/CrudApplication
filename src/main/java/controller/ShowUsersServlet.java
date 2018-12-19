@@ -17,6 +17,9 @@ public class ShowUsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
             resp.setContentType("text/html;charset=utf-8");
+            resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+            resp.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+            resp.setDateHeader("Expires", 0); // Proxies.
             req.setAttribute("showUsers", userService.getAllUser());
             req.getRequestDispatcher("/showUsers.jsp").forward(req, resp);
     }
