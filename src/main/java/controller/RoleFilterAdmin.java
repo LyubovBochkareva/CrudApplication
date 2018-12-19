@@ -1,5 +1,7 @@
 package controller;
 
+import model.User;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
@@ -23,9 +25,10 @@ public class RoleFilterAdmin implements Filter {
 
 
         //Существует ли сессиия
-        boolean loggedIn = session != null && session.getAttribute("role") != null;
+        boolean loggedIn = session != null && session.getAttribute("Logger_user") != null;
         if (loggedIn) {
-            String userRole = session.getAttribute("role").toString();
+            User user = (User) session.getAttribute("Logger_user");
+            String userRole = user.getRole();
             switch (userRole) {
                 case "user":
                     httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/user");
